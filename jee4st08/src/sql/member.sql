@@ -1,3 +1,4 @@
+select * from tab;
 select * from member;
 create table member(
 	id varchar2(20) primary key,

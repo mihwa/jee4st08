@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 import global.Constants;
 import global.DatabaseFactory;
@@ -70,5 +72,27 @@ public class AccountDAO {
 	}
 	public void withdraw(AccountBean acc) {
 		this.deposit(acc);
+	}
+	public Map<?, ?> selectMap() {
+		Map<String,AccountMemberBean> map = new HashMap<String,AccountMemberBean>();
+		String sql = "select * from account_member";
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				AccountMemberBean am = new AccountMemberBean();
+				am.setAccountNo(rs.getInt("ACCOUNT_NO"));
+				am.setId(rs.getString("ID"));
+				am.setMoney(rs.getInt("MONEY"));
+				am.setName(rs.getString("NAME"));
+				am.setPw(rs.getString("PW"));
+				am.setRegDate(rs.getString("REG_DATE"));
+				am.setSsn(rs.getString("SSN"));
+				map.put(String.valueOf(am.getAccountNo()), am);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return map;
 	}
 }
