@@ -13,9 +13,9 @@ import java.text.SimpleDateFormat;
  * @story  :
 */
 public class MemberBean {
-	private String id,pw,name,regDate,gender,ssn; 
+	private String id,pw,name,regDate,gender,ssn,profileImg; 
 	private int birth;
-	
+	//
 	public MemberBean() {}
 	
 	public MemberBean(String id,String pw,String name,String ssn) {
@@ -55,6 +55,10 @@ public class MemberBean {
 		default:
 			System.out.println("잘못된값이 입력됨");
 		}
+	}
+	public String getprofileImg()
+	{ 
+		return profileImg;
 	}
 	public String getId() {
 		return id;
