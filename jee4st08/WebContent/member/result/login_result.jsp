@@ -46,6 +46,8 @@
 		}else{
 			application.log("넘어온 ID:"+id);
 			application.log("넘어온 PW:"+pw);
+			if(id==""|| pw=="")
+			
 			%>
 			<h2>로그인 실패!!</h2>
 			<a href="<%=ctx %>/member/service/login.jsp">다시 시도하기</a>

@@ -29,9 +29,9 @@ div.joinDiv {
 			<span class="meta"> 비밀번호 </span><%=request.getParameter("pw") %> <br />
 			<span class="meta">SSN </span><%=request.getParameter("ssn") %> <br />
 			<span class="meta">전공</span><%=request.getParameter("major") %><br/> 
-			
+			<span class="meta">수강과목</span> 
 			<%
-			String[]subjects=request.getParameterValues("subject");
+			String[] subjects = request.getParameterValues("subject");
 			if(subjects !=null){
 				for(int i=0;i<subjects.length;i++){
 			%><%=subjects[i]%><br/><% 
