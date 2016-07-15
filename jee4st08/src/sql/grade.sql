@@ -13,6 +13,7 @@ create table grade(
 	html number,
 	javascript number,
 	id varchar2(20),
+	exam_date varchar2(10),
 	constraint grade_member_fk foreign key (id)
 	references member(id) on delete cascade
 );
@@ -52,7 +53,7 @@ drop view grade_view;
 
 -- join 조인 
 
-create view grade_member as
+create or replace view grade_member as
 select 
 	g.seq as seq,
 	g.grade as grade,
