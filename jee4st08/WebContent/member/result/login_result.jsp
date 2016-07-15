@@ -6,10 +6,11 @@
     <%@ page import="member.MemberServiceImpl"%>
     <%@ page import="member.MemberBean"%>
     <%String ctx =application.getContextPath(); %>
+    
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8"/>
 <title>로그인</title>
 <link rel="stylesheet" href="<%=ctx %>/css/member.css"/>
 
@@ -27,7 +28,9 @@
 			<h2>로그인 실패!!</h2>
 			<a href="<%=ctx %>/member/service/login.jsp">다시 시도하기</a>
 			<%	
-		}else{}
+		}else{
+			
+		}
 		member.setId(id);
 		member.setPw(pw);
 		String name = service.login(member);

@@ -48,6 +48,12 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
+	public MemberBean show() {
+	//2보기
+		System.out.println("생년월일"+);
+		return session;
+	}
+	@Override
 	public String delete(String id) {
 		String result = ""; 
 		if (dao.delete(id) == 1) {
@@ -105,6 +111,13 @@ public class MemberServiceImpl implements MemberService{
 			}
 		
 		return result;
+	}
+
+
+	@Override
+	public MemberBean getSession() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
 

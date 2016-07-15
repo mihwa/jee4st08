@@ -24,11 +24,12 @@ public class MemberDAO {
 
 	private MemberDAO() {
 		try {
+			Class.forName(Constants.ORACLE_DRIVER);
 			con = DriverManager.getConnection(
 					Constants.ORACLE_URL,
 					Constants.USER_ID,
 					Constants.USER_PW);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -83,13 +84,15 @@ public class MemberDAO {
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(sql);
 			while(rs.next()){
-				MemberBean t = new MemberBean(
-						rs.getString("ID"),
-						rs.getString("PW"),
-						rs.getString("NAME"), 
-						rs.getString("SSN")
-						);
+				MemberBean t = new MemberBean();
+				rs=stmt.executeQuery(sql);
+				t.setId(rs.getNString("ID"));
+				t.setPw(rs.getString("PW"));	
+				t.setName(rs.getString("NAME")); 
+				t.setEmail(rs.getString("EMAIL"));
+				t.setGenderAndBirth(rs.getString("SSN"));
 				t.setRegDate(rs.getString("REG_DATE"));
+				t.setProfileImg(rs.getString("PROFILE_IMG"));
 				list.add(t);
 			}
 		} catch (Exception e) {

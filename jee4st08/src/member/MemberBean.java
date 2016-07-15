@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
  * @story  :
 */
 public class MemberBean {
-	private String id,pw,name,regDate,gender,ssn,profileImg; 
+	private String id,pw,name,regDate,gender,ssn,profileImg,email; 
 	private int birth;
 	
 	public MemberBean() {}
@@ -27,38 +27,40 @@ public class MemberBean {
 		this.regDate = now;
 		String[] ssnArr = ssn.split("-");
 		String[] nowArr = now.split("-");
-		int ageResult1 = (Integer.parseInt(ssnArr[0]));
-		int genderResult = (Integer.parseInt(ssnArr[1]));
-		int ageResult2 = (Integer.parseInt(nowArr[0]));
+		int ssnBirth = (Integer.parseInt(ssnArr[0]));
+		int ssnGender = (Integer.parseInt(ssnArr[1]));
+		int thisYear= (Integer.parseInt(nowArr[0]));
 		int ageResult0 = 0;
-		switch (genderResult%2) {
+		switch ( ssnGender%2) {
 		case 1: case 5: 
 			this.gender="남"; 
-			ageResult0 = ageResult2 - 1900-(ageResult1/10000);
-			this.birth = ageResult0;
+			System.out.println("올해:"+thisYear);
+			//ageResult0 = ageResult2 - 1900-(ageResult1/10000);
+			//나이를 구하려고 했으나 일단보류
+			this.birth =ssnBirth;
 			break;
 		case 3: case 7:
 			this.gender="남"; 
-			ageResult0 = ageResult2 - 2000-(ageResult1/10000);
-			this.birth = ageResult0;
+			
+			this.birth =ssnBirth;
 			break;
 		case 2: case 6:
 			this.gender="여";
-			ageResult0 = ageResult2 - 1900-(ageResult1/10000);
-			this.birth = ageResult0;
+		
+			this.birth =ssnBirth;
 			break;
 		case 4: case 8:
 			this.gender="여";
-			ageResult0 = ageResult2 - 2000-(ageResult1/10000);
-			this.birth = ageResult0;
+		
+			this.birth =ssnBirth;
 			break;
 		default:
 			System.out.println("잘못된값이 입력됨");
 		}
 	}
 	
-	public String getProfileImg() {
-		return profileImg;
+	public String getEmail() {
+		return email;
 	}
 
 	public void setProfileImg(String profileImg) {
@@ -96,7 +98,7 @@ public class MemberBean {
 	public String getGender() {
 		return gender;
 	}
-	public void setGender(String gender) {
+	public void setGenderAndBirth(String snn) {
 		this.gender = gender;
 	}
 	public String getSsn() {
@@ -114,13 +116,15 @@ public class MemberBean {
 		this.birth = birth;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
-		return "학생 [아이디=" + id + ", 비번=****"  + ", 이름=" + name + ", 등록일=" + regDate + ", 성별=" + gender
-				+ ", 주민번호=" + ssn + ", 나이=" + birth + "]";
+		return "MemberBean [아이디=" + id + ", 비밀번호=" + pw + ", 이름=" + name + ", regDate=" + regDate + ", gender=" + gender
+				+ ", ssn=" + ssn + ", profileImg=" + profileImg + ", 이메일=" + email + ", birth=" + birth + "]";
+	}
+
+	public void setEmail(String string) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 
