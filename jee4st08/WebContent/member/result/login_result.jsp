@@ -28,9 +28,11 @@
  	member.setPw(pw);
  	
  	String result=service.login(member);
- 	if(id==""&&pw==""){
- 		
- 	}else{
+ 	if(id==""||pw==""){
+ 	
+ 	
+ 	
+ 	} else{
  	if(result==""){
  		
  	}else{

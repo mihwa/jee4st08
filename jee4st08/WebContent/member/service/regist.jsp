@@ -20,8 +20,7 @@ div.joinDiv {
 	margin: 10px 50px 10px 50px
 }
 </style>
-</head>
-<body>  
+
 	<div class="box">
 		<form action="<%=ctx %>/result/regist_result.jsp" method="post">
 			<span class="meta"> 이름 </span> <input type="text" name="name" /> <br />

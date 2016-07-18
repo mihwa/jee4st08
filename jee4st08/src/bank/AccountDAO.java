@@ -217,6 +217,22 @@ public class AccountDAO {
 			e.printStackTrace();
 		}
 		return map;
+	}
+	public static AccountDAO getInstance() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public void deposit(AccountBean acc) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void withdraw(AccountBean acc) {
+		// TODO Auto-generated method stub
+		
+	}
+	public int selectMoney(int accNo) {
+		// TODO Auto-generated method stub
+		return 0;
 	};
 	
 

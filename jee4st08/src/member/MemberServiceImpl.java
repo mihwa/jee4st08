@@ -10,7 +10,7 @@ import bank.AccountServiceImpl;
 public class MemberServiceImpl implements MemberService {
 	
 	MemberDAO dao = MemberDAO.getInstance();
-	AccountService accService = AccountServiceImpl.getInstence();
+	AccountService accService = AccountServiceImpl.getInstance();
 	
 	MemberBean session;
 	private static MemberServiceImpl instanceImpl = new MemberServiceImpl();
@@ -97,11 +97,11 @@ public class MemberServiceImpl implements MemberService {
 			if (dao.login(member)) {
 				session = dao.findById(member.getId());
 				result = session.getName();
-				accService.map();
+				//accService.map();
 			}else{
 				result = "";
 			}
-		
+		System.out.println("11:"+result);
 		return result;
 	}
 	public String myAccount() {
