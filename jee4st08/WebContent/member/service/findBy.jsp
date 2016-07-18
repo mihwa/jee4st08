@@ -1,30 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@page import="member.MemberService" %>
-    <%@page import="member.MemberServiceImpl" %>
-    <%@page import="member.MemberService" %>
-    <%String ctx =application.getContextPath(); %>
-<!DOCTYPE html>
-<html>
+        <%
+    String ctx = application.getContextPath();
+    %>
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>회원가입</title>
+	<meta charset="UTF-8" />
+<title>ID 검색</title>
 <link rel="stylesheet" href="<%=ctx %>/css/member.css"/>
-<style type="text/css">
-iframe.ifrm {
-	border: none;
-	width: 400px;
-	height: 400px;
-}
+<style>
+	iframe.ifrm{border:none; width:250px; height: 250px;}
+	span.meta{width: 200px; background-color:yellow; float: center}
 </style>
 </head>
 <body>
-	<div class="box">
-	<h2>정보검색</h2><br>
-	<iframe src="image.jsp" class="ifrm"></iframe><br/>
-		<a href="<%=ctx %>/member/member_controller.jsp"><img src="<%=ctx %>/img/member.jpg" alt="user" style="width: 30px"/></a>
-		<a href="<%=ctx %>/index.jsp"><img src="<%=ctx %>/img/home.jpg" alt="home" style="width: 30px"/></a>
-
-		</div>
-	</body>
+<div class ="header">
+<h1>회원 검색</h1>
+</div>
+	<div style="text-align: center">
+	
+	<form action="<%=ctx %>/member/result/find_by.jsp" method="post">
+	<span class="meta">검색할 ID를 입력해주세요</span><input type="text" name="id"> <br/><br/>
+	<input type="submit" value="검색">
+	<input type="reset" value="취소">
+	</form>
+	<a href="<%=ctx %>/member/member_controller.jsp"><img src="<%=ctx %>/img/member.jpg" alt="member" style="width:30px" /></a>
+	<a href="<%=ctx %>/global/main.jsp"><img src="<%=ctx %>/img/home.jpg" alt="home" style="width:30px" /></a>
+	</div>
+		<div class="footer">
+	Copyright � hanbit academy
+	</div>
+</body>
 </html>

@@ -28,19 +28,9 @@ div.joinDiv {
 			<span class="meta">ID </span> <input type="text" name="id" /> <br />
 			<span class="meta"> 비밀번호 </span>  <input type="text" name="pw" /> <br />
 			<span class="meta">SSN </span> <input type="text" name="ssn" /> <br />
-			<span class="meta">전공</span> 
-			<input type="radio" value="computer" name="major" checked/>컴퓨터공학부
-			<input type="radio" value="mamt" name="major" />경영학부
-			<input type="radio" value="math" name="major" />수학부
-			<input type="radio" value="eng" name="major" />영문학부<br /><br><br/>
-			<span class="meta">수강과목</span> <br/><br><br/>
-			<input type="checkbox" value="java" name="subject" />Java
-			<input type="checkbox" value="sql" name="subject" />SQL
-			<input type="checkbox" value="cpp" name="subject" /> C++
-			<input type="checkbox" value="python" name="subject" /> 파이선
-			<input type="checkbox" value="delphi" name="subject" /> 델파이
-			<input type="checkbox" value="html" name="subject" /> HTML
-			 <br/><br><br/>
+			<span class="meta">EMAIL </span> <input type="text" name="email" /> <br />
+			
+			
 			<input type="submit" value="회원가입" /> 
 			<input type="reset" value="취소" />
 		</form>

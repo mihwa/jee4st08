@@ -3,7 +3,10 @@
     <%@page import="member.MemberService" %>
     <%@page import="member.MemberServiceImpl" %>
     <%@page import="member.MemberService" %>
-    <%String ctx =application.getContextPath(); %>
+    <%String ctx =application.getContextPath();
+    
+    
+    %>
 <!DOCTYPE html>
 <html>
 <head>

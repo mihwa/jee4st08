@@ -1,12 +1,20 @@
 <%@page import="member.MemberServiceImpl"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%String ctx =application.getContextPath(); %>
+   <%@ page import = "member.MemberService" %>
+    <%@ page import = "member.MemberServiceImpl" %>
+    <%@ page import = "member.MemberBean" %>
+      <% String ctx = application.getContextPath(); %>
+      <%
+	MemberService service = MemberServiceImpl.getInstanceImpl();
+	
+	%>
 <!DOCTYPE html>
-<html>
+<html lang=en>
 <head>
 <meta charset="UTF-8">
 <title>회원 상세 정보</title>
+
 <link rel="stylesheet" href="<%=ctx %>/css/member.css"/>
 <style type="text/css">
 div.box1 {
@@ -30,25 +38,28 @@ div.box1 {
 	<table id = "member_detail">
 		<tr>
 			<td rowspan="3" style ="width:30%">
-			<img src="<%=ctx%>/img/member/lee.jpg" alt="W3Schools.com" width="104" height="142"></td>
+			<img src="<%=ctx%>/img/태후.jpg" alt="W3Schools.com" width="104" height="142"></td>
 			<td style ="width:20%" class="font_bold bg_color_yellow">ID</td>
 			<td style="width: 40%"></td>
 		</tr>
 		<tr>
 			<td class="font_bold bg_color_yellow">이름</td>
-			<td></td>
+			<td colspan="2"></td>
 		</tr>
 		<tr>
 			<td class="font_bold bg_color_yellow">성별</td>
-			<td></td>
+			<td colspan="2"></td>
 		</tr>
 		<tr>
 			<td class="font_bold bg_color_yellow">이메일</td>
+			
 			<td colspan="2"></td>
+		
 		</tr>
 		<tr>
 			<td class="font_bold bg_color_yellow">생년월일</td>
-			<td colspan="2"></td>
+						<td colspan="2"></td>
+			
 		</tr>
 		<tr>
 			<td class="font_bold bg_color_yellow">등록일</td>

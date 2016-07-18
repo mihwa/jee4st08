@@ -6,7 +6,7 @@ import java.util.Random;
 import global.Constants;
 
 
-public class AccountBean {
+public class AccountMain {
 	private int accountNo, money; 
 	private String id;
 	

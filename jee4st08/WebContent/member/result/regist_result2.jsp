@@ -70,20 +70,7 @@ div.joinDiv{border:0px width: 50%; margin: 10px 50px 10px 50px}
 </head>
 <body>
 <%
-	MemberService service=MemberServiceImpl.getInstanceImpl();
-	MemberBean member=new MemberBean();
-	String name = request.getParameter("name");
-	String id = request.getParameter("id");
-	String pw = request.getParameter("pw");
-	String ssn = request.getParameter("ssn");
-	String email = request.getParameter("email");
-	member.setName(name);
-	member.setId(id);
-	member.setPw(pw);
-	member.setSsn(ssn);
-	member.setEmail(email);
-	String result= service.regist(member);
-	
+
 %>
 <div id ="header">
 <h1>회원가입완료</h1>

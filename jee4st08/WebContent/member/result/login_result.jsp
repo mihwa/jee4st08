@@ -1,65 +1,54 @@
+<%@page import="member.MemberBean"%>
 <%@page import="member.MemberServiceImpl"%>
+<%@page import="member.MemberService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   
-    <%@ page import="member.MemberService" %>
-    <%@ page import="member.MemberServiceImpl"%>
-    <%@ page import="member.MemberBean"%>
-    <%String ctx =application.getContextPath(); %>
-    
-<!DOCTYPE html>
-<html>
+        <%
+    String ctx = application.getContextPath();
+    %>
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="UTF-8"/>
+	<meta charset="UTF-8" />
 <title>로그인</title>
 <link rel="stylesheet" href="<%=ctx %>/css/member.css"/>
-
 </head>
 <body>
-		<div class="box">
-		<%
-		
-		MemberService service = MemberServiceImpl.getInstance();
-		MemberBean member =new MemberBean();
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
-		if(id==null || pw==null){
-			%>
-			<h2>로그인 실패!!</h2>
-			<a href="<%=ctx %>/member/service/login.jsp">다시 시도하기</a>
-			<%	
-		}else{
-			
-		}
-		member.setId(id);
-		member.setPw(pw);
-		String name = service.login(member);
-		if(name==null){
-			%>
-			<h2>로그인 실패!!</h2>
-			<a href="<%=ctx %>/member/service/login.jsp">다시 시도하기</a>
-			<%
-		}
-		
-		if(id !=null 
-					&& id.equals("hong")
-					&& pw !=null
-					&& pw.equals("1")){
-			
-			response.sendRedirect(ctx+"/global/main.jsp");
-		}else{
-			application.log("넘어온 ID:"+id);
-			application.log("넘어온 PW:"+pw);
-			if(id==""|| pw=="")
-			
-			%>
-			<h2>로그인 실패!!</h2>
-			<a href="<%=ctx %>/member/service/login.jsp">다시 시도하기</a>
-			<%
-			application.log("리얼패스"+application.getContextPath());
-		}
-	%>
+<div class ="header">
+<h1>로그인</h1>
+</div>
+<div style="text-align: center">
+	
+<%
+ MemberService service = MemberServiceImpl.getInstanceImpl();
+ MemberBean member=new MemberBean();
+ String id= request.getParameter("id");
+ String pw =request.getParameter("pw");
+ 	member.setId(id);
+ 	member.setPw(pw);
+ 	
+ 	String result=service.login(member);
+ 	if(id==""&&pw==""){
+ 		
+ 	}else{
+ 	if(result==""){
+ 		
+ 	}else{
+ 		
+ 	%>
+ 	<%=result %>님 로그인되었습니다.
+ 		<a href="<%=ctx %>/member/member_controller.jsp>">main으로</a>
+ 	
+ 	<%
+ 		
+ 	}
+ 	}
+%>
 
-	</div>
+
+</div>
+<div class ="footer">
+	Copyright � hanbit academy
+</div>
 </body>
-</html>	
+</html>
